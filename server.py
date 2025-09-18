@@ -1,4 +1,6 @@
-from mcp.server.fastmcp import FastMCP
+#from mcp.server.fastmcp import FastMCP
+
+from fastmcp import FastMCP
 
 from src.services.branches import (
     create_branch,
@@ -206,4 +208,5 @@ mcp.tool(
 
 # Run the server
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    mcp.run(transport="streamable-http", host="127.0.0.1", port=8000, stateless_http=True)
+    #mcp.run(transport="stdio")

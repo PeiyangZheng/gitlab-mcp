@@ -1,12 +1,12 @@
 """REST client for making HTTP requests to the GitLab API."""
 
-import os
 from collections.abc import AsyncIterator
 from typing import Any
 
 import httpx
 
 from src.api.custom_exceptions import GitLabAPIError, GitLabAuthError, GitLabErrorType
+from src.settings import settings
 
 
 class GitLabRestClient:
@@ -14,8 +14,8 @@ class GitLabRestClient:
 
     def __init__(self) -> None:
         """Initialize the GitLab REST client."""
-        self._base_url = os.getenv("GITLAB_API_URL", "https://gitlab.com")
-        self._token = os.getenv("GITLAB_PERSONAL_ACCESS_TOKEN")
+        self._base_url = settings.GITLAB_URL
+        self._token = settings.GITLAB_TOKEN
         self._httpx_client: httpx.AsyncClient | None = None
 
     def _get_headers(self) -> dict[str, str]:

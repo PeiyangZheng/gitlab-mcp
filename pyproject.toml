@@ -5,8 +5,12 @@ description = "GitLab MCP (Model Context Protocol) server for interacting with G
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "mcp-cli>=0.7.5",
+    "python-gitlab>=6.3.0",
+
+    "fastmcp>=2.11.3",
     "dotenv>=0.9.9",
-    "mcp[cli]>=1.6.0",
+
     "pydantic>=2.11.3",
     "pydantic-settings>=2.8.1",
     "asyncio>=3.4.3",
